@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+     <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solicitação de reembolso</title>
+    <script>
+      function validar () {
+        const email = document.getElementById("email").value
+        const id = document.getElementById("idcompra").value
+        const motivo = document.getElementById("motivo").value
+        console.log("oi")
+        if (!email || !id || !motivo) {
+          console.log("alerta?")
+          alert("Preencha todos os campos corretamente")
+        } else {
+          console.log("redireciona")
+          window.location.href = "./ok.html"
+        }
+      }
+
+      document.getElementById("solicitar").onclick(() => validar)
+    </script>
+  </head>
+  <body>
+    <div id="app">
+      <div class="flex flex-col space-y-10 bg-neutral-900 text-neutral-100 w-screen h-screen items-center pt-32">
+        <img src="./images/logo.png" class="h-28"/>
+        <input
+         id="email" 
+         class="bg-transparent border-gray-700 border-2 p-2 rounded-full w-96 transition-all focus:outline-none focus:border-green-700" 
+         placeholder="Email"
+         />
+        <input id="idcompra" class="bg-transparent border-gray-700 border-2 p-2 rounded-full w-96 transition-all focus:outline-none focus:border-green-700" placeholder="ID da compra"/>
+       <textarea id="motivo" class="bg-transparent border-gray-700 border-2 p-2 rounded-md w-96 resize-none h-32 transition-all focus:outline-none focus:border-green-700" placeholder="Motivo do reembolso:"></textarea>
+        <button onclick="validar()" class="bg-green-700 text-center font-medium w-80 p-2 rounded-md hover:bg-green-800 transition-all">Enviar solicitação</button>
+      </div>
+    </div>
+  </body>
+</html>
+
+
